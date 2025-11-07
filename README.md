@@ -55,9 +55,9 @@
 
 Clone the repository:
 
-git clone https://github.com/virus0hacker/openwrt-network-monitor.git
+git clone https://github.com/virus0hacker/network_monitor_openwrt_disconnect.git
 
-cd openwrt-network-monitor-mlftt
+cd network_monitor_openwrt_disconnect
 
 Install dependencies:
 
@@ -190,7 +190,7 @@ MIT License © 2025 ml-ftt
 
 Snapchat: ml-ftt
 
-GitHub: https://github.com/virus0hacker/openwrt-network-monitor
+GitHub: https://github.com/virus0hacker/network_monitor_openwrt_disconnect
 
 
 
