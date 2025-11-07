@@ -190,7 +190,7 @@ MIT License © 2025 ml-ftt
 
 Snapchat: ml-ftt
 
-GitHub: https://github.com/virus0hacker/openwrt-network-monitor-mlftt
+GitHub: https://github.com/virus0hacker/openwrt-network-monitor
 
 
 
