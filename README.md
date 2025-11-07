@@ -45,10 +45,11 @@
 
 - Python 3.9+  
 - Required Python package:
-  ```bash
   pip install paramiko
+  
 
 (Optional) oui.txt in repository root to map MAC prefixes to vendors (file format: 001122 Vendor Name per line).
+
 
 🔧 Installation / التثبيت
 
@@ -60,6 +61,7 @@ cd openwrt-network-monitor-mlftt
 Install dependencies:
 
 pip install paramiko
+
 
 Run the GUI:
 
@@ -90,9 +92,13 @@ Click Generate Script (all) → choose a path and save.
 
 This produces openwrt_block_all.sh with uci rules and optional iptables lines.
 
+
+
 To block particular devices:
 
 Select one or more rows in the table.
+
+
 
 Click Disconnect Selected (Safe):
 
@@ -101,6 +107,8 @@ The tool will generate a small script that adds UCI firewall rules matching the 
 It will then upload and execute that script on your router via SSH (the app will prompt for router IP, user, and password in the SSH panel).
 
 The script backs up firewall config to /tmp/fw-backup.conf before applying changes.
+
+
 
 To deploy an existing saved script:
 
@@ -120,15 +128,18 @@ Backup firewall (recommended):
 ssh root@192.168.1.1 'uci export firewall > /tmp/fw-backup.conf'
 scp root@192.168.1.1:/tmp/fw-backup.conf .
 
+
 Restore backup:
 
 scp ./fw-backup.conf root@192.168.1.1:/tmp/
 ssh root@192.168.1.1 'uci import firewall < /tmp/fw-backup.conf; /etc/init.d/firewall restart'
 
 
+
 ⚙️ How Disconnect Selected (Safe) works — شرح آلية العمل
 
 The GUI collects selected devices (MAC addresses).
+
 
 It generates an OpenWrt shell script which:
 
@@ -144,6 +155,8 @@ The router now blocks the specified MAC addresses at the firewall layer — this
 
 Note: MAC-based blocking can be bypassed by MAC spoofing. For stronger enforcement, consider DHCP reservations + static firewall rules + client isolation.
 
+
+
 🧰 Troubleshooting / استكشاف المشاكل
 
 Paramiko errors: make sure SSH is enabled on the router, credentials are correct, and your PC can reach router_ip:22.
@@ -151,6 +164,8 @@ Paramiko errors: make sure SSH is enabled on the router, credentials are correct
 If you lose access after testing a block, restore from the saved firewall backup as shown above.
 
 If some devices show empty MAC: ARP table may not contain them. Try a second scan or check router's DHCP leases.
+
+
 
 🔐 Security & Responsibility / الأمن والمسؤولية
 
@@ -160,17 +175,23 @@ Always backup before applying rules.
 
 Do not use this tool to attack or disrupt networks or devices you do not own or administer. Misuse may be illegal.
 
+
+
 📝 License / الترخيص
 
 MIT License © 2025 ml-ftt
 
 (Short summary: you are free to use and modify the code for lawful purposes. See LICENSE file for full terms.)
 
+
+
 ✉️ Contact / تواصل
 
 Snapchat: ml-ftt
 
 GitHub: https://github.com/YOUR_USERNAME/openwrt-network-monitor-mlftt
+
+
 
 🔖 Suggested repo files
 
