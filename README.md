@@ -55,7 +55,8 @@
 
 Clone the repository:
 
-git clone https://github.com/YOUR_USERNAME/openwrt-network-monitor-mlftt.git
+git clone https://github.com/virus0hacker/openwrt-network-monitor-mlftt.git
+
 cd openwrt-network-monitor-mlftt
 
 Install dependencies:
