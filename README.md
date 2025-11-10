@@ -1,13 +1,13 @@
 # 🇸🇦 OpenWrt Network Monitor — snap: ml-ftt
 
-**Author:** ml-ftt  
+**Author:** virus-hacker
 **Version:** 1.0  
 **Language:** Python 3 (GUI: Tkinter)  
 **SSH Library:** Paramiko
 
 ---
 
-## 🔎 Project Overview — English
+## 🔎 Project Overview:
 
 **OpenWrt Network Monitor** is a local, GUI-based tool that helps network administrators monitor devices on a LAN and generate OpenWrt-compatible firewall blocking scripts. It also offers a *safe, authorized* `Disconnect Selected (Safe)` feature that deploys blocking rules to your own OpenWrt router via SSH.
 
@@ -19,6 +19,7 @@
 - Upload and execute scripts on your own OpenWrt router (SSH).
 - Disconnect selected devices safely by adding firewall rules on your router.
 
+
 ---
 
 ## 🔐 ملاحظة قانونية وأخلاقية:
@@ -29,7 +30,7 @@
 
 ---
 
-## ✅ Features / المميزات
+## ✅ Features:
 
 - GUI (Tkinter) — professional dark-green banner and status.
 - LAN scan using `ping` + `arp` to detect active devices.
@@ -41,6 +42,8 @@
 
 ---
 
+
+
 ## ⚙️ Requirements / المتطلبات
 
 - Python 3.9+  
@@ -48,20 +51,23 @@
   pip install paramiko
   
 
+
+
 (Optional) oui.txt in repository root to map MAC prefixes to vendors (file format: 001122 Vendor Name per line).
 
 
-🔧 Installation / التثبيت
-
-Clone the repository:
+🔧 Installation
 
 git clone https://github.com/virus0hacker/network_monitor_openwrt_disconnect.git
 
 cd network_monitor_openwrt_disconnect
 
+
+
 Install dependencies:
 
 pip install paramiko
+
 
 
 Run the GUI:
@@ -69,7 +75,9 @@ Run the GUI:
 python network_monitor_openwrt_disconnect.py
 
 
-▶️ Quick Usage (GUI) — كيفية الاستخدام
+
+
+▶️ Quick Usage (GUI):
 
 Open the app (python network_monitor_openwrt_disconnect.py).
 
@@ -95,9 +103,11 @@ This produces openwrt_block_all.sh with uci rules and optional iptables lines.
 
 
 
+
 To block particular devices:
 
 Select one or more rows in the table.
+
 
 
 
@@ -116,6 +126,7 @@ To deploy an existing saved script:
 Use Run Last Script On Router after entering router credentials (Router IP / User / Password).
 
 
+
 🔁 Example (commands run on your PC)
 
 Copy/paste example (manual deploy):
@@ -124,10 +135,13 @@ scp openwrt_block_selected.sh root@192.168.1.1:/tmp/
 ssh root@192.168.1.1 'chmod +x /tmp/openwrt_block_selected.sh && /tmp/openwrt_block_selected.sh'
 
 
+
 Backup firewall (recommended):
 
 ssh root@192.168.1.1 'uci export firewall > /tmp/fw-backup.conf'
 scp root@192.168.1.1:/tmp/fw-backup.conf .
+
+
 
 
 Restore backup:
@@ -137,9 +151,11 @@ ssh root@192.168.1.1 'uci import firewall < /tmp/fw-backup.conf; /etc/init.d/fir
 
 
 
-⚙️ How Disconnect Selected (Safe) works — شرح آلية العمل
+
+⚙️ How Disconnect Selected (Safe) works:
 
 The GUI collects selected devices (MAC addresses).
+
 
 
 It generates an OpenWrt shell script which:
@@ -158,7 +174,8 @@ Note: MAC-based blocking can be bypassed by MAC spoofing. For stronger enforceme
 
 
 
-🧰 Troubleshooting / استكشاف المشاكل
+
+🧰 Troubleshooting:
 
 Paramiko errors: make sure SSH is enabled on the router, credentials are correct, and your PC can reach router_ip:22.
 
@@ -168,7 +185,8 @@ If some devices show empty MAC: ARP table may not contain them. Try a second sca
 
 
 
-🔐 Security & Responsibility / الأمن والمسؤولية
+
+🔐 Security & Responsibility:
 
 You alone are responsible for changes made on your router.
 
@@ -178,7 +196,8 @@ Do not use this tool to attack or disrupt networks or devices you do not own or 
 
 
 
-📝 License / الترخيص
+
+📝 License:
 
 MIT License © 2025 ml-ftt
 
@@ -186,22 +205,9 @@ MIT License © 2025 ml-ftt
 
 
 
+
 ✉️ Contact / تواصل
 
 Snapchat: ml-ftt
-
-GitHub: https://github.com/virus0hacker/network_monitor_openwrt_disconnect
-
-
-
-🔖 Suggested repo files
-
-network_monitor_openwrt_disconnect.py (main script)
-
-README.md (this file)
-
-LICENSE (MIT)
-
-.gitignore (ignore *.pyc, __pycache__, *.json results if you want)
 
 oui.txt (optional vendor mapping)
